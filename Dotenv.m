@@ -13,7 +13,6 @@ classdef Dotenv < handle
     end
     
     methods
-        % TODO add a destructor
         function obj = Dotenv(location)
             obj.env = struct;
             switch nargin
@@ -23,6 +22,11 @@ classdef Dotenv < handle
                     obj.fname = '.env';
             end
             
+        end
+        
+        function delete(obj)
+            obj.env = {};
+            obj.fname = "";
         end
         
         function val = subsref(obj, s)

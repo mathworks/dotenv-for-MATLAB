@@ -1,7 +1,7 @@
 # MATLAB dotenv
 > A MATLAB implementation of the common dotenv pattern. 
 
-Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. MATLAB dotenv lets you store configuration data in a .env file. You can share your code files without sharing your configuration data.
+Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. MATLAB dotenv lets you store configuration data in a `.env` file. You can share your code files without sharing your configuration data.
 
 ![screenshot](config/dotenv-screenshot.png "MATLAB Screenshot")
 
@@ -10,11 +10,12 @@ Put `Dotenv.m` somewhere on your [search path](https://www.mathworks.com/help/ma
 
 ## Usage Example
 `Dotenv()` will try and load a file named `.env` from the current working folder. Alternatively, you can specify the path with `Dotenv('path/to/file.env')`.
-`.env`
 
+`.env`
 ```text
 API_KEY=ybvxtzwaxa:r42DtRhuUT7TywYpzBABOFZ0IIomwuIEXnfFVq2VSXjRC
 ```
+
 `file.m`
 ```matlab
 d = Dotenv();
