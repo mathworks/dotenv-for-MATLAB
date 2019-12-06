@@ -19,7 +19,6 @@ API_KEY=ybvxtzwaxa:r42DtRhuUT7TywYpzBABOFZ0IIomwuIEXnfFVq2VSXjRC
 `file.m`
 ```matlab
 d = Dotenv();
-d.configure();
 opts = weboptions('HeaderField', ["accept", "any"; "authorization", d.env.API_KEY])
 url = "https://myurl.com"
 response = webread(url, opts);
@@ -36,7 +35,7 @@ The parsing engine currently supports the following rules:
 
 ## FAQ
 ### Should I commit my `.env` file?
-No. You should put `.env` in your `.gitignore` file.
+No. You should put `*.env` in your `.gitignore` file.
 
 ## Development Setup
 Clone the repository. You can run `runtests('tests')` from the project root to run the unit test suite.
