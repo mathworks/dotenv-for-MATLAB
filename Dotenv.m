@@ -1,16 +1,25 @@
+
 classdef Dotenv
+    % Dotenv Implementation of common dotenv pattern 
+    % Dotenv allows you to load environment variables at runtime without 
+    % committing your .env file to source control. A common reason for 
+    % doing this is that you need a password or API key but don't want to 
+    % embed that in your code or in source control. 
+    % See https://github.com/motdotla/dotenv for inspiration
     % Copyright 2019-2019 The MathWorks, Inc.
-    
-    %Dotenv Implementation of common dotenv pattern
-    %   See https://github.com/motdotla/dotenv for inspiration
-    
+
     properties (SetAccess = immutable)
-        fname
-        env
+        env % Structure to hold key/value pairs. Access via d.env.key.
     end
+    
+    properties (Access = private)
+        fname
+    end
+    
     
     methods
         function obj = Dotenv(location)
+            % d = Dotenv([path/to/file.env]) -- load .env file from current working directory or specified via path.
             obj.env = struct;
             switch nargin
                 case 1 % if there is an argument load that file
@@ -52,6 +61,7 @@ classdef Dotenv
         end
         
         function val = subsref(obj, s)
+            % Overload subsref to handle d.env (all key/value pairs vs. d.env.key (the value specified by the supplied key)
             if size(s, 2) == 1
                 % this handles the case of d.env
                 val=obj.env;
