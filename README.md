@@ -1,7 +1,7 @@
 # MATLAB dotenv
-> A MATLAB&reg; implementation of the common dotenv pattern. 
+> A MATLAB implementation of the common dotenv pattern. 
 
-Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. MATLAB dotenv lets you store configuration data in a `.env` file. You can share your code files without sharing your configuration data.
+Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. MATLAB&reg; dotenv lets you store configuration data in a `.env` file. You can share your code files without sharing your configuration data.
 
 ![screenshot](config/dotenv-screenshot.png "MATLAB Screenshot")
 
