@@ -30,8 +30,8 @@ The parsing engine currently supports the following rules:
 * empty lines are skipped
 * lines beginning with `#` are treated as comments
 * empty values become empty strings (`DB_HOST=` becomes `DBHOST: ''`)
-* whitespace is removed from both ends of unquoted values (`DB_HOST=some server` becomes `DB_HOST:'some server`)
-* quoted values are escaped (`DB_PASS=" some password "` becomes `DB_PASS:' some password'`)
+* whitespace is removed from both ends of unquoted values (`DB_HOST=some server` becomes `DB_HOST:'some server'`)
+* quoted values are escaped (`DB_PASS=" some password "` becomes `DB_PASS:' some password '`)
 
 ## FAQ
 ### Should I commit my `.env` file?
