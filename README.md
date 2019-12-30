@@ -6,10 +6,10 @@ Storing configuration in the environment separate from code is based on [The Twe
 ![screenshot](config/dotenv-screenshot.png "MATLAB Screenshot")
 
 ## Installation
-Put `Dotenv.m` somewhere on your [search path](https://www.mathworks.com/help/matlab/ref/path.html).
+Put `dotenv.m` somewhere on your [search path](https://www.mathworks.com/help/matlab/ref/path.html).
 
 ## Usage Example
-`Dotenv()` will try and load a file named `.env` from the current working folder. Alternatively, you can specify the path with `Dotenv('path/to/file.env')`.
+`dotenv()` will try and load a file named `.env` from the current working folder. Alternatively, you can specify the path with `dotenv('path/to/file.env')`.
 
 `.env`
 ```text
@@ -18,7 +18,7 @@ API_KEY=ybvxtzwaxa:r42DtRhuUT7TywYpzBABOFZ0IIomwuIEXnfFVq2VSXjRC
 
 `file.m`
 ```matlab
-d = Dotenv();
+d = dotenv();
 opts = weboptions('HeaderField', ["accept", "any"; "authorization", d.env.API_KEY])
 url = "https://myurl.com"
 response = webread(url, opts);
