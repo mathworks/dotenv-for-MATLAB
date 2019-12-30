@@ -6,14 +6,12 @@ end
 
 
 function testValidData(testCase)
-d = Dotenv();
-d.configure();
+d = dotenv();
 assert(d.env.DB_HOST == "localhost");
 end
 
 
 function testInvalidName(testCase)
-d = Dotenv();
-d.configure();
+d = dotenv();
 assert(d.env.DB_HOSED == ""); % doesn't exist
 end

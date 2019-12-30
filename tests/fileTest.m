@@ -6,7 +6,7 @@ end
 
 function testFileNotFound(testCase)
 try
-    d = Dotenv('config/dotenv'); % dosen't exist
+    d = dotenv('config/dotenv'); % dosen't exist
 catch ME
     assert(string(ME.identifier) == 'DOTENV:CannotOpenFile');
 end
@@ -14,12 +14,12 @@ end
 
 function testDefaultLocation(testCase)
 %% Opens default ./.env file
-d = Dotenv();
+d = dotenv();
 assert(d.env.DB_HOST == "localhost");
 end
 
 function testNamedLocation(testCase)
 %% Opens nested .env file
-d = Dotenv('../config/.env');
+d = dotenv('../config/.env');
 assert(d.env.DB_HOST == "localhost");
 end
