@@ -1,7 +1,6 @@
-
-classdef Dotenv
+classdef dotenv
     % Dotenv Implementation of common dotenv pattern 
-    % Dotenv allows you to load environment variables at runtime without 
+    % dotenv allows you to load environment variables at runtime without 
     % committing your .env file to source control. A common reason for 
     % doing this is that you need a password or API key but don't want to 
     % embed that in your code or in source control. 
@@ -18,8 +17,8 @@ classdef Dotenv
     
     
     methods
-        function obj = Dotenv(location)
-            % d = Dotenv([path/to/file.env]) -- load .env file from current working directory or specified via path.
+        function obj = dotenv(location)
+            % d = dotenv([path/to/file.env]) -- load .env file from current working directory or specified via path.
             obj.env = struct;
             switch nargin
                 case 1 % if there is an argument load that file
