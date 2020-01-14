@@ -27,20 +27,17 @@ classdef dotenv
                     obj.fname = '.env';
             end
             
-            % load the .env file with name=value pairs into the 'env' struct
+            % ensure we can open the file
             try
                 fid = fopen(obj.fname, 'r');
                 assert(fid ~= -1);
             catch
                 throw( MException('DOTENV:CannotOpenFile', "Cannot open file: " + obj.fname + ". Code: " + fid) );
             end
-            
-            lines = [];
-            while ~feof(fid)
-                tline = string(fgetl(fid));
-                lines = [lines tline];
-            end
             fclose(fid);
+            
+            % load the .env file with name=value pairs into the 'env' struct
+            lines = string(splitlines(fileread(obj.fname)));
 
             notOK = startsWith(lines, '#');
             lines(notOK) = [];
