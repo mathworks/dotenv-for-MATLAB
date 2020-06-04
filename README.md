@@ -1,7 +1,7 @@
 # dotenv for MATLAB
-> A MATLAB implementation of the common dotenv pattern. 
+> A MATLAB implementation of the dotenv pattern. 
 
-Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. dotenv for MATLAB&reg; lets you store configuration data in a `.env` file. You can share your code files without sharing your configuration data.
+Storing configuration in the environment separate from code is based on [The Twelve-Factor App](https://12factor.net/config) methodology. dotenv for MATLAB&reg; lets you store configuration data (passwords, API keys, server names, etc.) outside of your code. This lets you share your code without sharing your configuration data. 
 
 ![screenshot](config/dotenv-screenshot.png "MATLAB Screenshot")
 
@@ -41,9 +41,5 @@ No. You should put `*.env` in your `.gitignore` file.
 ## Development Setup
 Clone the repository. You can run `runtests('tests')` from the project root to run the unit test suite.
 
-## Contributing
-1. Fork it
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+## Bugs?
+I would love to hear if this breaks on any weird strings or doesn't work the way you expected.
