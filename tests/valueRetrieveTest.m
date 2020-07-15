@@ -7,11 +7,11 @@ end
 
 function testValidData(testCase)
 d = dotenv();
-assert(d.env.DB_HOST == "localhost");
+testCase.verifyEqual(d.env.DB_HOST,"localhost");
 end
 
 
 function testInvalidName(testCase)
 d = dotenv();
-assert(d.env.DB_HOSED == ""); % doesn't exist
+testCase.verifyEqual(d.env.DB_HOSED, "", 'DB_HOSED variable doesn''t exist');
 end
