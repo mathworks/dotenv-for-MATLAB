@@ -5,6 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+  - task: InstallMATLAB@0
   - task: RunMATLABTests@0
     inputs:
       testResultsJUnit: test-results/results.xml
