@@ -5,6 +5,8 @@ Storing configuration in the environment separate from code is based on [The Twe
 
 ![screenshot](config/dotenv-screenshot.png "MATLAB Screenshot")
 
+[![mathworks](https://circleci.com/gh/mathworks/dotenv-for-MATLAB.svg?style=shield)](https://circleci.com/gh/mathworks/dotenv-for-MATLAB)
+
 [![View dotenv-for-MATLAB on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/73988-dotenv-for-matlab)
 ## Installation
 Put `dotenv.m` somewhere on your [search path](https://www.mathworks.com/help/matlab/ref/path.html).
