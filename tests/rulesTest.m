@@ -1,8 +1,8 @@
 % Copyright 2019-2019 The MathWorks, Inc.
 
 function tests = rulesTest()
-%Rules Test tests expected behavoir of .env config
-%   See https://github.com/motdotla/dotenv#rules
+% Rules Test tests expected behavoir of .env config
+% See https://github.com/motdotla/dotenv#rules
 tests = functiontests(localfunctions);
 end
 
