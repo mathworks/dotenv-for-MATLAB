@@ -1,11 +1,11 @@
 classdef dotenv
-    % Dotenv Implementation of common dotenv pattern 
+    % Dotenv Implementation of dotenv pattern 
     % dotenv allows you to load environment variables at runtime without 
     % committing your .env file to source control. A common reason for 
     % doing this is that you need a password or API key but don't want to 
     % embed that in your code or in source control. 
     % See https://github.com/motdotla/dotenv for inspiration
-    % Copyright 2019-2019 The MathWorks, Inc.
+    % Copyright 2019-2021 The MathWorks, Inc.
 
     properties (SetAccess = immutable)
         env % Structure to hold key/value pairs. Access via d.env.key.
@@ -37,11 +37,22 @@ classdef dotenv
             fclose(fid);
             
             % load the .env file with name=value pairs into the 'env' struct
-            lines = string(splitlines(fileread(obj.fname)));
-
+            % 20b (v9.10) introduced readlines()
+            if verLessThan('matlab', '9.10')
+                lines = string(splitlines(fileread(obj.fname)));
+            else
+                % I put in the feature request for readlines() so I better
+                % use it :)
+                lines = readlines(obj.fname); 
+            end
+            
             notOK = startsWith(lines, '#');
             lines(notOK) = [];
-                   
+            
+            % expr splits the line into a key / value pairs with regex
+            % capture. It captures one or more characters up to the first
+            % instance of an '=' in 'key' and then zero or more characters
+            % into 'value'. 
             expr = "(?<key>.+?)=(?<value>.*)";
             kvpair = regexp(lines, expr, 'names');
             
@@ -52,12 +63,14 @@ classdef dotenv
                 kvpair = cellfun(@(x) struct('key', x.key, 'value', x.value), kvpair);
             end
             
+            % to be able to use dot reference we need to convert it to a
+            % structure
             obj.env = cell2struct(strtrim({kvpair.value}), [kvpair.key], 2);
             
         end
         
         function val = subsref(obj, s)
-            % Overload subsref to handle d.env (all key/value pairs vs. d.env.key (the value specified by the supplied key)
+            % Overload subsref to handle d.env (all key/value pairs) vs. d.env.key (the value specified by the supplied key)
             if size(s, 2) == 1
                 % this handles the case of d.env
                 val=obj.env;
