@@ -1,15 +1,62 @@
 version: 2.1
 orbs:
-  matlab: mathworks/matlab@0.1
-
+  matlab: mathworks/matlab@0.4.0
+  
 jobs:
-  build:
+  build-latest:
     machine:
       image: ubuntu-1604:201903-01
     steps:
-      - checkout
-      - matlab/install
-      - matlab/run-tests:
-          test-results-junit: test-results/matlab/results.xml
-      - store_test_results:
-          path: test-results
+        - checkout
+        - matlab/install:
+            release: latest
+        - matlab/run-tests:
+            test-results-junit: test-results/matlab/results.xml
+        - store_test_results:
+            path: test-results
+
+  build-21a:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+        - checkout
+        - matlab/install:
+            release: R2021a
+        - matlab/run-tests:
+            test-results-junit: test-results/matlab/results.xml
+        - store_test_results:
+            path: test-results             
+
+  build-20b:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+        - checkout
+        - matlab/install:
+            release: R2020b
+        - matlab/run-tests:
+            test-results-junit: test-results/matlab/results.xml
+        - store_test_results:
+            path: test-results             
+  
+  build-20a:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+        - checkout
+        - matlab/install:
+            release: R2020a
+        - matlab/run-tests:
+            test-results-junit: test-results/matlab/results.xml
+        - store_test_results:
+            path: test-results             
+
+workflows:
+  version: 2
+  multiple-matlabs:
+    jobs:
+      - build-latest
+      - build-21a
+      - build-20b
+      - build-20a       
+ 
