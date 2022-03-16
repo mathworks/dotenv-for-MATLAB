@@ -4,8 +4,8 @@ orbs:
   
 jobs:
   build-latest:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      image: cimg/base:stable
     steps:
         - checkout
         - matlab/install:
@@ -15,9 +15,21 @@ jobs:
         - store_test_results:
             path: test-results
 
+  build-21b:
+    docker:
+      image: cimg/base:stable
+    steps:
+        - checkout
+        - matlab/install:
+            release: R2021b
+        - matlab/run-tests:
+            test-results-junit: test-results/matlab/results.xml
+        - store_test_results:
+            path: test-results
+
   build-21a:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      image: cimg/base:stable
     steps:
         - checkout
         - matlab/install:
@@ -28,8 +40,8 @@ jobs:
             path: test-results             
 
   build-20b:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      image: cimg/base:stable
     steps:
         - checkout
         - matlab/install:
@@ -40,8 +52,8 @@ jobs:
             path: test-results             
   
   build-20a:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      image: cimg/base:stable
     steps:
         - checkout
         - matlab/install:
@@ -56,6 +68,7 @@ workflows:
   multiple-matlabs:
     jobs:
       - build-latest
+      - build-21b
       - build-21a
       - build-20b
       - build-20a       
