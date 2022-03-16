@@ -4,8 +4,8 @@ orbs:
   
 jobs:
   build-latest:
-    docker:
-      - image: cimg/base:stable
+    machine:
+      - image: ubuntu-2004:current
     steps:
         - checkout
         - matlab/install:
@@ -16,8 +16,8 @@ jobs:
             path: test-results
 
   build-21b:
-    docker:
-      - image: cimg/base:stable
+    machine:
+      - image: ubuntu-2004:current
     steps:
         - checkout
         - matlab/install:
@@ -28,8 +28,8 @@ jobs:
             path: test-results
 
   build-21a:
-    docker:
-      - image: cimg/base:stable
+    machine:
+      - image: ubuntu-2004:current
     steps:
         - checkout
         - matlab/install:
@@ -40,8 +40,8 @@ jobs:
             path: test-results             
 
   build-20b:
-    docker:
-      - image: cimg/base:stable
+    machine:
+      - image: ubuntu-2004:current
     steps:
         - checkout
         - matlab/install:
@@ -52,8 +52,8 @@ jobs:
             path: test-results             
   
   build-20a:
-    docker:
-      - image: cimg/base:stable
+    machine:
+      - image: ubuntu-2004:current
     steps:
         - checkout
         - matlab/install:
