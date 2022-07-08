@@ -52,7 +52,7 @@ Examples are in the [config](config/) directory.
 
 ### Should I commit my `.env` file?
 
-No. You should put `*.env` in your `.gitignore` file. [MATLAB.gitignore](https://github.com/github/gitignore/blob/master/Global/MATLAB.gitignore) plus `*.env` is a good start.
+No. You should put `*.env` in your `.gitignore` file. [MATLAB.gitignore](https://github.com/mathworks/gitignore/blob/main/Global/MATLAB.gitignore) plus `*.env` is a good start.
 
 ## Development Setup
 
